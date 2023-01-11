@@ -12,9 +12,14 @@ const refs = {
 };
 
 refs.inputEl.addEventListener('input', debounce(onInputEl, DEBOUNCE_DELAY));
+refs.inputEl.addEventListener('blur', debounce(onBlurEl, DEBOUNCE_DELAY));
 
-function onInputEl({ target }) {
-  const value = target.value.trim();
+function onBlurEl(event) {
+  event.target.value = '';
+}
+
+function onInputEl(event) {
+  const value = event.target.value.trim();
   if (!value) {
     refs.countryListEl.innerHTML = '';
     refs.countryCardEl.innerHTML = '';
