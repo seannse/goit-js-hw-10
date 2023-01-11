@@ -32,13 +32,13 @@ function onInputEl(event) {
 }
 
 function onFetchCountriesRejectInfo() {
-  refs.countryListEl.innerHTML = '';
-  refs.countryCardEl.innerHTML = '';
   Notify.failure('Oops, there is no country with that name');
 }
 
 function onFetchCountriesResolveCheck(arr) {
   if (arr.length > 10) {
+    refs.countryListEl.innerHTML = '';
+    refs.countryCardEl.innerHTML = '';
     Notify.info('Too many matches found. Please enter a more specific name.');
   } else if (arr.length === 1) {
     refs.countryListEl.innerHTML = '';
@@ -66,8 +66,6 @@ function onRenderCountryCardMarkup(arr) {
   const markup = arr
     .map(country => {
       const { name, capital, population, flags, languages } = country;
-      // console.log(country)
-      // console.log(flags.svg)
       return `<strong style="font-size: 30px;">
         <img src="$${flags.svg}" alt="Flag" width="75" />
         ${name.common}
