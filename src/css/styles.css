@@ -18,3 +18,13 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+ul {
+  list-style: none;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+li {
+  display: flex;
+}
