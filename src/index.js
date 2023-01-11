@@ -51,9 +51,7 @@ function onRenderCountryListMarkup(arr) {
   const markup = arr
     .map(({ name, flags }) => {
       return `<li>
-        <svg width="32" height="24">
-          <use href="${flags.svg}"></use>
-        </svg>
+        <img src="$${flags.svg}" alt="Flag" width="32" />
         <p>${name.common}</p>
       </li>`;
     })
@@ -66,10 +64,10 @@ function onRenderCountryCardMarkup(arr) {
   const markup = arr
     .map(country => {
       const { name, capital, population, flags, languages } = country;
+      // console.log(country)
+      // console.log(flags.svg)
       return `<strong style="font-size: 30px;">
-        <svg class="flag" width="32" height="24">
-          <use href="${flags.svg}"></use>
-        </svg>
+        <img src="$${flags.svg}" alt="Flag" width="75" />
         ${name.common}
       </strong>
       <p><b>Capital: </b>${capital}</p>
