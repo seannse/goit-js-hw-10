@@ -32,6 +32,8 @@ function onInputEl(event) {
 }
 
 function onFetchCountriesRejectInfo() {
+  refs.countryListEl.innerHTML = '';
+  refs.countryCardEl.innerHTML = '';
   Notify.failure('Oops, there is no country with that name');
 }
 
