@@ -31,7 +31,8 @@ function onInputEl(event) {
     .catch(onFetchCountriesRejectInfo);
 }
 
-function onFetchCountriesRejectInfo() {
+function onFetchCountriesRejectInfo(err) {
+  // console.dir(err)
   Notify.failure('Oops, there is no country with that name');
 }
 
@@ -53,7 +54,7 @@ function onRenderCountryListMarkup(arr) {
   const markup = arr
     .map(({ name, flags }) => {
       return `<li>
-        <img src="$${flags.svg}" alt="Flag" width="32" />
+        <img src="${flags.svg}" alt="Flag" width="32" />
         <p>${name.common}</p>
       </li>`;
     })
@@ -67,7 +68,7 @@ function onRenderCountryCardMarkup(arr) {
     .map(country => {
       const { name, capital, population, flags, languages } = country;
       return `<strong style="font-size: 30px;">
-        <img src="$${flags.svg}" alt="Flag" width="75" />
+        <img src="${flags.svg}" alt="Flag" width="75" />
         ${name.common}
       </strong>
       <p><b>Capital: </b>${capital}</p>
